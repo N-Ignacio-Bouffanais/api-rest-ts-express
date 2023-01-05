@@ -1,6 +1,7 @@
 import mongoose, { model, Schema  } from "mongoose";
 import { Electronic } from "../interfaces/electronic.interface";
 
+//This line is for suppress a Mongoose warm.
 mongoose.set("strictQuery", true);
 
 const ElectronicSchema = new Schema<Electronic>(
