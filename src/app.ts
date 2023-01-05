@@ -12,6 +12,6 @@ app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());
 app.use("/api", router);
-db().then(() => console.log("conexion ready"));
+db().then(() => console.log("Database connected"));
 
-app.listen(PORT, () => console.log(`Servidor escuchando en el puerto ${PORT}`));
+app.listen(PORT, () => console.log(`Server listening on port: ${PORT}`));
