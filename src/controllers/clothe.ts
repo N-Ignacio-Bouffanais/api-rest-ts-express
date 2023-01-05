@@ -12,6 +12,7 @@ const getItem = async ({ params }: Request, res: Response) => {
   try {
     const { id } = params;
     const response = await getClothe(id);
+    const data = response ? response: "NOT FOUND"
     res.send(response);
   } catch (e) {
     handlehttp(res, "ERROR_GET_Clothe");

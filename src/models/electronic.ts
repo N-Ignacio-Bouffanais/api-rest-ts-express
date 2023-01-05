@@ -1,11 +1,11 @@
-import mongoose, { model, Schema, Types, Model } from "mongoose";
-import { Clothe } from "../interfaces/clothe.interface";
+import mongoose, { model, Schema  } from "mongoose";
+import { Electronic } from "../interfaces/electronic.interface";
 
 mongoose.set("strictQuery", true);
 
-const ClotheSchema = new Schema<Clothe>(
+const ElectronicSchema = new Schema<Electronic>(
   {
-    name: {
+    model: {
       type: String,
       required: true,
       trim: true,
@@ -22,20 +22,24 @@ const ClotheSchema = new Schema<Clothe>(
       type: String,
       required: true,
     },
-    size: {
-      type: String || Number,
+    year: {
+      type: Number,
       required: true,
     },
     category: {
       type: String,
       trim: true,
-      enum: ["camisas", "poleras", "polerones","pantalones","chalecos"],
+      enum: ["celular", "tablet", "laptop", "mouse", "monitor", "teclado"],
       required: true,
     },
     price: {
       type: Number,
       required: true,
     },
+    so:{
+        type: String,
+        required: true,
+    }
   },
   {
     timestamps: true,
@@ -43,6 +47,6 @@ const ClotheSchema = new Schema<Clothe>(
   }
 );
 
-const ClotheModel = model("clothes", ClotheSchema);
+const ElectronicModel = model("electronis", ElectronicSchema);
 
-export default ClotheModel;
+export default ElectronicModel;

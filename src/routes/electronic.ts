@@ -1,18 +1,18 @@
 import { Router } from "express";
 import {
-  deleteElectronic,
-  getElectronic,
-  getElectronics,
-  postElectronic,
-  updateElectronic,
+  deleteItem,
+  getItem,
+  getItems,
+  postItem,
+  updateItem,
 } from "../controllers/electronic";
 
 const router = Router();
 
-router.get("/", getElectronics),
-  router.get("/:id", getElectronic),
-  router.get("/", postElectronic),
-  router.get("/:id", updateElectronic),
-  router.delete("/:id", deleteElectronic);
+router.get("/", getItems);
+router.get("/:id", getItem);
+router.post("/", postItem);
+router.put("/:id", updateItem);
+router.delete("/:id", deleteItem);
 
 export { router };
