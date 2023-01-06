@@ -1,4 +1,6 @@
 import { Request, Response } from "express";
+import { JwtPayload } from "jsonwebtoken";
+import { RequestExt } from "../interfaces/req-ext";
 import {
   insertClothe,
   getClothes,
@@ -12,16 +14,16 @@ const getItem = async ({ params }: Request, res: Response) => {
   try {
     const { id } = params;
     const response = await getClothe(id);
-    const data = response ? response: "NOT FOUND"
-    res.send(response);
+    const data = response ? response : "NOT FOUND";
+    res.send(data);
   } catch (e) {
     handlehttp(res, "ERROR_GET_Clothe");
   }
 };
-const getItems = async (req: Request, res: Response) => {
+const getItems = async (req: RequestExt, res: Response) => {
   try {
     const response = await getClothes();
-    res.send(response);
+    res.send({data:response, user:req.user});
   } catch (e) {
     handlehttp(res, "ERROR_GET_Clothes");
   }
