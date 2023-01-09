@@ -9,7 +9,10 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 app.use(morgan("dev"));
-app.use(cors());
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true
+}));
 app.use(express.json());
 app.use("/", router);
 db().then(() => console.log("Database connected"));
