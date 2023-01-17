@@ -1,16 +1,13 @@
 import { NextFunction, Request, Response } from "express";
 import { JwtPayload } from "jsonwebtoken";
+import { RequestExt } from "../interfaces/req-ext";
 import { verifyToken } from "../utils/jwt.handler";
-
-interface RequestExt extends Request {
-  user?: string | JwtPayload;
-}
 
 const checkJwt = (req: RequestExt, res: Response, next: NextFunction) => {
   try {
     const jwtByUser = req.headers.authorization || "";
     const jwt = jwtByUser.split(" ").pop();
-    const isUser = verifyToken(`${jwt}`);
+    const isUser = verifyToken(`${jwt}`) as { id: string };
     console.log(isUser)
     if (!isUser) {
       res.status(401);

@@ -5,5 +5,6 @@ export interface Clothe {
   description: string;
   price: number;
   size: string;
-  category: "camisas" | "poleras" | "polerones" |"pantalones" | "chalecos";
+  category: "camisas" | "poleras" | "polerones" | "pantalones" | "chalecos";
+  imagePath: string;
 }
