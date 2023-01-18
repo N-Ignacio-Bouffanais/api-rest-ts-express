@@ -15,6 +15,7 @@ app.use(cors({
     credentials: true
 }));
 app.use(express.json());
+
 app.use("/", router);
 app.use("/uploads", express.static(path.resolve('uploads')))
 db().then(() => console.log("Database connected"));

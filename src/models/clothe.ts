@@ -29,7 +29,7 @@ const ClotheSchema = new Schema<Clothe>(
     category: {
       type: String,
       trim: true,
-      enum: ["camisas", "poleras", "polerones","pantalones","chalecos"],
+      enum: ["camisas", "poleras", "polerones", "pantalones", "chalecos"],
       required: true,
     },
     price: {

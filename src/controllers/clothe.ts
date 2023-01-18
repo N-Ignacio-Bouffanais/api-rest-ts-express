@@ -38,9 +38,9 @@ const updateItem = async ({ params, body }: Request, res: Response) => {
     handlehttp(res, "ERROR_UPDATE_Clothe");
   }
 };
-const postItem = async ({ body }: Request, res: Response) => {
+const postItem = async (req: Request, res: Response) => {
   try {
-    const responseClothe = await insertClothe(body);
+    const responseClothe = await insertClothe(req.body);
     res.send(responseClothe);
   } catch (e) {
     handlehttp(res, "ERROR_CREATE_Clothe", e);
